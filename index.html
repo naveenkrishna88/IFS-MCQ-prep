@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Institute of Actuaries of India (IAI) India Fellowship Seminar (IFS) Professionalism MCQ Exam Simulator and Practice Engine." />
+  <title>IAI IFS Professionalism MCQ Exam Simulator | Institute of Actuaries of India</title>
+  
+  <!-- Modern Typography: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <button id="sidebarToggleBtn" class="btn btn-secondary btn-sm" aria-label="Toggle Syllabus Navigation">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="brand-badge" id="brandHomeBtn" style="cursor: pointer;">
+        <div class="brand-logo-icon">IAI</div>
+        <div class="header-brand-text">
+          <h1 class="brand-title">IFS Professionalism MCQ Simulator</h1>
+          <p class="brand-subtitle">Institute of Actuaries of India • Fellowship Seminar Preparation</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="topStartMockBtn" class="btn btn-primary btn-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <span>Full Mock Exam (30 Qs)</span>
+      </button>
+
+      <button id="themeToggleBtn" class="btn btn-secondary btn-sm" aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Application Container -->
+  <div class="app-container">
+    
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Responsive Persistent Left Sidebar -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">Syllabus Modules</span>
+        <button id="closeSidebarBtn" class="btn btn-sm btn-secondary d-md-none" aria-label="Close Sidebar" style="display: none;">✕</button>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <!-- Dynamically rendered navigation items for syllabus topics -->
+      </nav>
+
+      <div class="sidebar-footer">
+        <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">IAI Fellowship Exam Benchmark</div>
+        <p>30 Questions • 60 Minutes • 60% Passing Benchmark (18/30 marks) • No negative marking</p>
+        <div class="benchmark-indicator">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span>Strict adherence to Actuaries Act 2006 & PCS v4.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      <div class="content-viewport">
+
+        <!-- VIEW 1: Dashboard Home -->
+        <section id="dashboardView">
+          <!-- Hero Banner -->
+          <div class="hero-banner">
+            <div class="hero-content">
+              <span class="hero-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                IAI Fellowship Seminar (IFS) Exam Prep
+              </span>
+              <h2 class="hero-title">Master Actuarial Professionalism & Conduct Rules</h2>
+              <p class="hero-desc">
+                High-yield exam simulation engine testing the Professional Conduct Standards v4.0, Actuaries Act 2006, IAI Governance, Disciplinary Mechanisms, Student Code 2026, APS 9 CPD, and Practice Standards.
+              </p>
+              <div class="hero-actions">
+                <button id="heroStartMockBtn" class="btn btn-white">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <span>Start 30-Question Mock Exam</span>
+                </button>
+                <button id="heroBrowseSyllabusBtn" class="btn btn-ghost-white">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                  <span>View Complete Syllabus Brief</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Stats Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Total Questions Bank</span>
+                <span class="stat-icon" style="background: var(--primary-light); color: var(--primary);">📚</span>
+              </div>
+              <div class="stat-value" id="statTotalQCount">60</div>
+              <div class="stat-subtext">Verified against official IAI standards</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Passing Benchmark</span>
+                <span class="stat-icon" style="background: var(--warning-bg); color: var(--warning);">🎯</span>
+              </div>
+              <div class="stat-value">60%</div>
+              <div class="stat-subtext">18 marks out of 30 required to pass</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Your Best Mock</span>
+                <span class="stat-icon" style="background: var(--success-bg); color: var(--success);">🏆</span>
+              </div>
+              <div class="stat-value" id="statBestScore">--</div>
+              <div class="stat-subtext" id="statBestScoreSub">No completed mocks yet</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-header">
+                <span class="stat-label">Total Mock Attempts</span>
+                <span class="stat-icon" style="background: var(--info-bg); color: var(--info);">⏱️</span>
+              </div>
+              <div class="stat-value" id="statTotalAttempts">0</div>
+              <div class="stat-subtext" id="statAvgAccuracy">Practice makes perfect</div>
+            </div>
+          </div>
+
+          <!-- Syllabus Modules & Topic Practice Grid -->
+          <div class="section-header">
+            <h3 class="section-title">Topic Practice Modules</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Select a module to practice or view syllabus briefs</span>
+          </div>
+
+          <div class="category-cards-grid" id="categoryCardsGrid">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+
+          <!-- Previous Exam History Card (if any) -->
+          <div class="analytics-card" id="recentHistoryCard" style="display: none;">
+            <div class="section-header" style="margin-bottom: 0.5rem;">
+              <h3 class="section-title" style="font-size: 1.1rem;">Recent Mock Exam Performance</h3>
+              <button id="clearHistoryBtn" class="btn btn-secondary btn-sm" style="color: var(--danger);">Clear History</button>
+            </div>
+            <div id="recentHistoryList"></div>
+          </div>
+        </section>
+
+
+        <!-- VIEW 2: Active Exam & Practice Session View -->
+        <section id="examView" style="display: none;">
+          <div class="exam-control-bar">
+            <div class="exam-info-badge">
+              <span id="examModeBadge" class="cat-badge">Full Mock Exam</span>
+              <span style="color: var(--text-muted);">•</span>
+              <span id="currentQuestionIndicator" style="font-weight: 700;">Question 1 of 30</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="timer-box" id="examTimerBox">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span id="timerDisplay">60:00</span>
+              </div>
+
+              <button id="exitExamBtn" class="btn btn-secondary btn-sm" title="Exit session back to dashboard">Exit</button>
+              <button id="finishExamTopBtn" class="btn btn-primary btn-sm">Submit Exam</button>
+            </div>
+          </div>
+
+          <div class="exam-view">
+            <!-- Main Question Container -->
+            <div class="exam-main-panel">
+              <div class="question-card" id="activeQuestionCard">
+                <div class="question-header">
+                  <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                    <span class="q-number-badge" id="qCategoryBadge">Category</span>
+                    <span class="q-source-badge" id="qSourceBadge">Source: Statutory Reference</span>
+                  </div>
+                  <button class="q-flag-btn" id="flagQuestionBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                      <line x1="4" y1="22" x2="4" y2="15"></line>
+                    </svg>
+                    <span id="flagBtnText">Flag for Review</span>
+                  </button>
+                </div>
+
+                <div class="question-text" id="activeQuestionText">
+                  Question text is loading...
+                </div>
+
+                <div class="options-list" id="activeOptionsList">
+                  <!-- Rendered dynamically -->
+                </div>
+
+                <div class="question-actions-bar">
+                  <button id="prevQuestionBtn" class="btn btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="19" y1="12" x2="5" y2="12"></line>
+                      <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Previous
+                  </button>
+
+                  <div style="display: flex; gap: 0.5rem;">
+                    <button id="clearAnswerBtn" class="btn btn-secondary btn-sm">Clear Choice</button>
+                    <button id="nextQuestionBtn" class="btn btn-primary">
+                      Next
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Side Question Palette Navigator -->
+            <aside class="exam-palette-panel">
+              <div class="palette-title">
+                <span>Question Navigator</span>
+                <span id="paletteAnsweredCount" style="font-size: 0.75rem; color: var(--text-muted);">0 / 30</span>
+              </div>
+              
+              <div class="palette-grid" id="questionPaletteGrid">
+                <!-- Numbers 1 to 30 rendered dynamically -->
+              </div>
+
+              <div class="palette-legend">
+                <div class="legend-item">
+                  <div class="legend-dot answered"></div>
+                  <span>Answered</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot unanswered"></div>
+                  <span>Unanswered</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot flagged"></div>
+                  <span>Flagged for Review</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.25rem;">
+                <button id="submitExamBottomBtn" class="btn btn-primary" style="width: 100%;">
+                  Submit & View Results
+                </button>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+
+        <!-- VIEW 3: Detailed Feedback, Scorecard & Explanations -->
+        <section id="resultsView" style="display: none;">
+          <!-- Score Summary Banner -->
+          <div class="results-summary-card">
+            <div id="resultStatusBadge" class="result-status-badge pass">PASS</div>
+            <div class="results-score-display" id="resultScoreDisplay">24 / 30</div>
+            <p class="results-benchmark-info" id="resultBenchmarkText">
+              Congratulations! You passed the 60% Fellowship benchmark (18/30 required).
+            </p>
+
+            <div class="results-stats-row">
+              <div class="results-mini-stat">
+                <div class="mini-stat-label">Percentage</div>
+                <div class="mini-stat-val" id="resultPercentage">80.0%</div>
+              </div>
+              <div class="results-mini-stat">
+                <div class="mini-stat-label">Correct</div>
+                <div class="mini-stat-val" style="color: var(--success);" id="resultCorrectCount">24</div>
+              </div>
+              <div class="results-mini-stat">
+                <div class="mini-stat-label">Incorrect</div>
+                <div class="mini-stat-val" style="color: var(--danger);" id="resultIncorrectCount">6</div>
+              </div>
+              <div class="results-mini-stat">
+                <div class="mini-stat-label">Time Taken</div>
+                <div class="mini-stat-val" id="resultTimeTaken">34m 12s</div>
+              </div>
+            </div>
+
+            <div class="results-actions-row">
+              <button id="retryIncorrectBtn" class="btn btn-danger">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                </svg>
+                <span id="retryBtnText">Retry Missed Questions</span>
+              </button>
+              <button id="newMockFromResultsBtn" class="btn btn-primary">
+                Take Another Full Mock (30 Qs)
+              </button>
+              <button id="backToDashFromResultsBtn" class="btn btn-secondary">
+                Back to Dashboard
+              </button>
+            </div>
+          </div>
+
+          <!-- Pure Client-Side Strength & Weakness Breakdown -->
+          <div class="analytics-card">
+            <div class="section-header">
+              <h3 class="section-title">Strength & Weakness Analysis by Syllabus Module</h3>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Real-time performance analytics grouped by official IAI regulatory topics</span>
+            </div>
+            
+            <div style="overflow-x: auto;">
+              <table class="breakdown-table">
+                <thead>
+                  <tr>
+                    <th>Syllabus Category</th>
+                    <th>Score / Attempted</th>
+                    <th>Accuracy</th>
+                    <th>Competency Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="analyticsTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Question-by-Question Review with Explanations -->
+          <div class="section-header" style="margin-top: 2rem;">
+            <h3 class="section-title">Question Explanations & Distractor Analysis</h3>
+            
+            <div class="filter-pills" id="reviewFilterPills">
+              <button class="filter-pill active" data-filter="all">All (<span id="filterAllCount">30</span>)</button>
+              <button class="filter-pill" data-filter="incorrect">Incorrect (<span id="filterIncorrectCount">0</span>)</button>
+              <button class="filter-pill" data-filter="correct">Correct (<span id="filterCorrectCount">0</span>)</button>
+              <button class="filter-pill" data-filter="flagged">Flagged (<span id="filterFlaggedCount">0</span>)</button>
+            </div>
+          </div>
+
+          <div id="reviewQuestionsList">
+            <!-- Review cards with both correct and incorrect explanations -->
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: Syllabus Topic Brief -->
+  <div class="modal-backdrop" id="syllabusModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div>
+          <span class="statutory-ref-tag" id="syllabusModalRef">Statutory Ref</span>
+          <h3 class="modal-title" id="syllabusModalTitle">Topic Overview</h3>
+        </div>
+        <button class="close-btn" id="closeSyllabusModalBtn" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="syllabus-brief-content" id="syllabusModalBody">
+        <!-- Injected dynamically -->
+      </div>
+      <div style="margin-top: 1.75rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button class="btn btn-secondary" id="closeSyllabusModalBtn2">Close</button>
+        <button class="btn btn-primary" id="startTopicQuizFromModalBtn">Practice This Topic Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Submit Confirmation -->
+  <div class="modal-backdrop" id="submitConfirmModal">
+    <div class="modal-window" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Ready to Submit Exam?</h3>
+        <button class="close-btn" id="cancelSubmitModalBtn">&times;</button>
+      </div>
+      <div style="font-size: 0.95rem; line-height: 1.5; color: var(--text-main); margin-bottom: 1.25rem;">
+        <p style="margin-bottom: 0.75rem;">Please review your completion status before finalizing:</p>
+        <div style="background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span>Questions Answered:</span>
+            <strong id="modalAnsweredCount" style="color: var(--primary);">0</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span>Questions Remaining:</span>
+            <strong id="modalUnansweredCount" style="color: var(--danger);">30</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span>Flagged for Review:</span>
+            <strong id="modalFlaggedCount" style="color: var(--warning);">0</strong>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button class="btn btn-secondary" id="returnToExamBtn">Return to Exam</button>
+        <button class="btn btn-primary" id="confirmSubmitFinalBtn">Confirm & Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
