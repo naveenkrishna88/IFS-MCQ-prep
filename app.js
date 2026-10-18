@@ -799,7 +799,7 @@ window.startTopicQuiz = function(category) {
   AppState.activeCategory = category;
   renderSidebarNav();
 
-  // Randomize 25 questions per topic practice session from the 350+ pool
+  // Randomize 25 questions per topic practice session from the 105 unique scenario pool
   const shuffled = [...filtered].sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, Math.min(25, shuffled.length));
 

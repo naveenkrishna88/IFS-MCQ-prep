@@ -101,8 +101,15 @@ IFS-MCQ-prep/
 ├── index.html           # Main semantic HTML5 single-page application
 ├── styles.css           # Premium actuarial CSS design system & responsive layout
 ├── app.js               # Core application logic, quiz engine & client-side analytics
-├── questions.json       # Master question bank (2,500 structured MCQs in JSON)
-├── build_full_bank.py   # Deterministic question bank generation engine
+├── questions.json       # Master question bank (735 unique, scenario-driven Fellowship MCQs)
+├── build_unique_bank.py # Master generator assembling all 7 modular domain generators
+├── gen_pcs.py           # Module 1 generator: PCS v4.0 (105 scenario MCQs)
+├── gen_act.py           # Module 2 generator: Actuaries Act 2006 (105 scenario MCQs)
+├── gen_gov.py           # Module 3 generator: IAI Governance & QRB (105 scenario MCQs)
+├── gen_disc.py          # Module 4 generator: Disciplinary Process (105 scenario MCQs)
+├── gen_std.py           # Module 5 generator: Student Code of Conduct 2026 (105 scenario MCQs)
+├── gen_aps9.py          # Module 6 generator: APS 9 CPD Regulations (105 scenario MCQs)
+├── gen_aps34.py         # Module 7 generator: APS 34 & FT-IGN 31 (105 scenario MCQs)
 └── README.md            # Comprehensive documentation & syllabus guide
 ```
 
