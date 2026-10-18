@@ -230,8 +230,17 @@ a:hover {
   top: 0;
   height: 100vh;
   z-index: 50;
-  transition: transform var(--transition-normal);
+  transition: transform var(--transition-normal), margin-left var(--transition-normal);
   overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.app-sidebar.collapsed {
+  margin-left: calc(-1 * var(--sidebar-width));
+}
+
+.close-sidebar-btn {
+  display: none;
 }
 
 .sidebar-header {
@@ -1316,12 +1325,26 @@ a:hover {
     top: 0;
     left: 0;
     bottom: 0;
+    height: 100%;
+    margin-left: 0 !important;
     transform: translateX(-100%);
     box-shadow: var(--shadow-xl);
+    transition: transform var(--transition-normal);
   }
 
   .app-sidebar.open {
     transform: translateX(0);
+  }
+
+  .close-sidebar-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1;
   }
 
   .content-viewport {

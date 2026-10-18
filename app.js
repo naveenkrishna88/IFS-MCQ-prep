@@ -437,6 +437,7 @@ function showView(viewId) {
 
 window.showDashboard = function() {
   if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+  if (window.closeMobileSidebar) window.closeMobileSidebar();
   AppState.activeCategory = null;
   renderSidebarNav();
   showView("dashboardView");
@@ -448,6 +449,7 @@ window.startFullMockExam = function() {
     alert("Questions are still loading, please wait a moment.");
     return;
   }
+  if (window.closeMobileSidebar) window.closeMobileSidebar();
 
   // Shuffle and pick exactly 30 questions matching official IAI format
   const shuffled = [...AppState.allQuestions].sort(() => 0.5 - Math.random());
@@ -462,6 +464,7 @@ window.startTopicQuiz = function(category) {
     alert("No questions found for this topic.");
     return;
   }
+  if (window.closeMobileSidebar) window.closeMobileSidebar();
 
   AppState.activeCategory = category;
   renderSidebarNav();
@@ -1078,20 +1081,30 @@ function setupEventListeners() {
     });
   }
 
-  // Sidebar Mobile Toggle
+  // Sidebar Toggle (Supports Desktop Collapsing and Mobile Drawer)
   const sidebarToggleBtn = document.getElementById("sidebarToggleBtn");
   const sidebar = document.getElementById("appSidebar");
   const overlay = document.getElementById("sidebarOverlay");
   const closeSidebarBtn = document.getElementById("closeSidebarBtn");
 
+  window.closeMobileSidebar = () => {
+    if (sidebar) sidebar.classList.remove("open");
+    if (overlay) overlay.classList.remove("active");
+  };
+
   const toggleSidebar = () => {
-    sidebar.classList.toggle("open");
-    overlay.classList.toggle("active");
+    if (!sidebar) return;
+    if (window.innerWidth <= 768) {
+      const isOpen = sidebar.classList.toggle("open");
+      if (overlay) overlay.classList.toggle("active", isOpen);
+    } else {
+      sidebar.classList.toggle("collapsed");
+    }
   };
 
   if (sidebarToggleBtn) sidebarToggleBtn.addEventListener("click", toggleSidebar);
-  if (overlay) overlay.addEventListener("click", toggleSidebar);
-  if (closeSidebarBtn) closeSidebarBtn.addEventListener("click", toggleSidebar);
+  if (overlay) overlay.addEventListener("click", window.closeMobileSidebar);
+  if (closeSidebarBtn) closeSidebarBtn.addEventListener("click", window.closeMobileSidebar);
 
   // Logo Click
   document.getElementById("brandHomeBtn").addEventListener("click", showDashboard);
