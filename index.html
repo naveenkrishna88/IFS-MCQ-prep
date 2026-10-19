@@ -36,11 +36,28 @@
     </div>
 
     <div class="header-right">
+      <div class="header-gamification-pills">
+        <div class="streak-pill" id="headerStreakPill" title="Daily Practice & Study Streak">
+          <span class="streak-flame">🔥</span>
+          <span id="headerStreakCount">1</span>d
+        </div>
+
+        <button id="headerTrophyBtn" class="btn-rank-pill" title="View Study Mastery Level, XP & Trophy Cabinet">
+          <span id="headerRankIcon">📘</span>
+          <span id="headerRankTitle">Initiate</span>
+          <span class="rank-xp-badge" id="headerXpBadge">0 XP</span>
+        </button>
+
+        <button id="soundToggleBtn" class="btn btn-secondary btn-sm" aria-label="Toggle Sound Effects" title="Toggle Sound FX">
+          <span id="soundIcon">🔊</span>
+        </button>
+      </div>
+
       <button id="topStartMockBtn" class="btn btn-primary btn-sm">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polygon points="5 3 19 12 5 21 5 3"></polygon>
         </svg>
-        <span>Full Mock Exam (30 Qs)</span>
+        <span>Full Mock (30 Qs)</span>
       </button>
 
       <button id="themeToggleBtn" class="btn btn-secondary btn-sm" aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
@@ -101,7 +118,7 @@
               </span>
               <h2 class="hero-title">Master Actuarial Professionalism & Conduct Rules</h2>
               <p class="hero-desc">
-                High-yield exam simulation engine testing the Professional Conduct Standards v4.0, Actuaries Act 2006, IAI Governance, Disciplinary Mechanisms, Student Code 2026, APS 9 CPD, and Practice Standards.
+                High-yield exam simulation engine testing the Professional Conduct Standards v4.0, Actuaries Act 2006, IAI Governance, Disciplinary Mechanisms, Student Code 2026, APS 9 Professional Development, and Practice Standards.
               </p>
               <div class="hero-actions">
                 <button id="heroStartMockBtn" class="btn btn-white">
@@ -120,6 +137,38 @@
                 <button id="heroAbbrBtn" class="btn btn-ghost-white">
                   <span>📖</span>
                   <span>Abbreviations Glossary</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Study Mastery Progression & Daily Practice HUD -->
+          <div class="mastery-hud-card">
+            <div class="mastery-hud-grid">
+              <div class="mastery-rank-block">
+                <div class="mastery-rank-avatar" id="hudRankAvatar">📘</div>
+                <div class="mastery-rank-info">
+                  <div class="mastery-rank-tier" id="hudRankTier">Study Milestone 1</div>
+                  <div class="mastery-rank-name" id="hudRankName">Syllabus Initiate</div>
+                  <div class="mastery-xp-bar-bg">
+                    <div class="mastery-xp-bar-fill" id="hudXpFill" style="width: 0%;"></div>
+                  </div>
+                  <div class="mastery-xp-numbers" id="hudXpNumbers">0 / 500 XP to Concept Builder</div>
+                </div>
+              </div>
+
+              <div class="daily-goal-block">
+                <div class="goal-label-box">
+                  <span class="goal-label-title">Daily Practice Goal</span>
+                  <span class="goal-label-desc" id="hudDailyGoalDesc">10 Questions Target</span>
+                </div>
+                <div class="goal-progress-ring-text" id="hudDailyGoalText">0 / 10</div>
+              </div>
+
+              <div class="mastery-hud-actions">
+                <button id="hudTrophyBtn" class="btn btn-secondary btn-sm" style="gap: 0.4rem;">
+                  <span>🏆</span>
+                  <span>Trophy Cabinet (<span id="hudTrophyCount">0/12</span>)</span>
                 </button>
               </div>
             </div>
@@ -164,6 +213,70 @@
             </div>
           </div>
 
+          <!-- Specialized Fellowship Game Modes Section -->
+          <div class="game-modes-section">
+            <div class="section-eyebrow">Interactive Fellowship Challenges</div>
+            <h3 class="section-title">Specialized Game Modes</h3>
+            <div class="game-modes-grid">
+              <!-- Mode 1: Disciplinary Hearing (Sudden Death) -->
+              <div class="game-mode-card">
+                <span class="mode-badge-tag badge-survival">Sudden Death • 1 Life</span>
+                <div class="mode-card-header">
+                  <span class="mode-card-icon">🚨</span>
+                  <h4 class="mode-card-title">Disciplinary Hearing</h4>
+                </div>
+                <p class="mode-card-desc">
+                  Stand before the IAI Disciplinary Committee. 1 single wrong answer results in a Show Cause Notice and instant license suspension! Test how long you can survive.
+                </p>
+                <div class="mode-card-footer">
+                  <div>
+                    <span class="mode-best-label">Personal Best: </span>
+                    <span class="mode-best-val" id="survivalBestVal">0 Qs</span>
+                  </div>
+                  <button id="startSurvivalModeBtn" class="btn btn-danger btn-sm">Enter Hearing</button>
+                </div>
+              </div>
+
+              <!-- Mode 2: Rapid-Fire Speed Blitz -->
+              <div class="game-mode-card">
+                <span class="mode-badge-tag badge-blitz">Full Syllabus • 60s Speed Sprint</span>
+                <div class="mode-card-header">
+                  <span class="mode-card-icon">⚡</span>
+                  <h4 class="mode-card-title">Rapid-Fire Speed Blitz</h4>
+                </div>
+                <p class="mode-card-desc">
+                  High-intensity rapid-fire sprint testing your reflexes across all 2,598 questions in the entire syllabus. Not limited to timelines—every scenario question is in play! Correct answers add +5s bonus time.
+                </p>
+                <div class="mode-card-footer">
+                  <div>
+                    <span class="mode-best-label">High Score: </span>
+                    <span class="mode-best-val" id="blitzBestVal">0 Qs</span>
+                  </div>
+                  <button id="startBlitzModeBtn" class="btn btn-primary btn-sm" style="background: #d97706; border-color: #d97706;">Start Blitz</button>
+                </div>
+              </div>
+
+              <!-- Mode 3: Weakness Boss Battle -->
+              <div class="game-mode-card">
+                <span class="mode-badge-tag badge-boss">Adaptive Inquest • 15 Qs</span>
+                <div class="mode-card-header">
+                  <span class="mode-card-icon">👹</span>
+                  <h4 class="mode-card-title">Weakness Boss Battle</h4>
+                </div>
+                <p class="mode-card-desc">
+                  A high-intensity inquest dynamically populated from your historically missed questions and lowest-accuracy syllabus modules. Defeating the boss clears your mistakes!
+                </p>
+                <div class="mode-card-footer">
+                  <div>
+                    <span class="mode-best-label">Bounty: </span>
+                    <span class="mode-best-val" style="color: #7c3aed;">+500 Bonus XP</span>
+                  </div>
+                  <button id="startBossBattleBtn" class="btn btn-secondary btn-sm" style="border-color: #7c3aed; color: #7c3aed;">Challenge Boss</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Syllabus Modules & Topic Practice Grid -->
           <div class="section-header">
             <h3 class="section-title">Topic Practice Modules</h3>
@@ -192,6 +305,10 @@
               <span id="examModeBadge" class="cat-badge">Full Mock Exam</span>
               <span style="color: var(--text-muted);">•</span>
               <span id="currentQuestionIndicator" style="font-weight: 700;">Question 1 of 30</span>
+              <div id="quizComboBanner" class="quiz-combo-banner" style="display: none;">
+                <span class="combo-flame">🔥</span>
+                <span id="comboMultiplierText">2x Combo</span>
+              </div>
             </div>
 
             <div style="display: flex; align-items: center; gap: 1rem;">
@@ -478,6 +595,49 @@
       </div>
     </div>
   </div>
+
+  <!-- MODAL: Trophy Cabinet & Actuarial Credentials -->
+  <div class="modal-backdrop" id="trophyModal">
+    <div class="modal-window trophy-modal-window">
+      <div class="modal-header">
+        <div>
+          <span class="statutory-ref-tag" style="background: rgba(245, 158, 11, 0.15); color: #d97706; border-color: rgba(245, 158, 11, 0.3);">Fellowship Accreditations</span>
+          <h3 class="modal-title">Actuarial Trophy Cabinet & Badges</h3>
+        </div>
+        <button class="close-btn" id="closeTrophyModalBtn" aria-label="Close Trophy Modal">&times;</button>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+        Earn prestigious actuarial credentials and badges by mastering statutory standards, building CPD streaks, and overcoming fellowship challenges.
+      </p>
+
+      <div class="trophy-grid" id="trophyGridContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end;">
+        <button class="btn btn-secondary" id="closeTrophyModalBtn2">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Level-Up Celebration Popover -->
+  <div class="modal-backdrop" id="levelUpModal">
+    <div class="modal-window level-up-window">
+      <div class="level-up-crown" id="levelUpCrownIcon">👑</div>
+      <h3 class="level-up-title">Career Level Elevated!</h3>
+      <div class="level-up-rank-name" id="levelUpRankName">Fellow of the Institute (FIAI)</div>
+      <p class="level-up-desc" id="levelUpDesc">
+        You have earned sufficient Professional Credibility Points (XP) to advance to the next actuarial echelon.
+      </p>
+      <button class="btn btn-primary" id="confirmLevelUpBtn" style="width: 100%; justify-content: center;">
+        Claim Fellowship Honors
+      </button>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas Particle Layer -->
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
 
   <script src="app.js?v=3.0"></script>
 </body>

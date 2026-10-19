@@ -1,146 +1,151 @@
 # IAI IFS Professionalism MCQ Simulator
 
-> A high-performance, production-ready, 100% static web application designed for actuarial candidates preparing for the **Institute of Actuaries of India (IAI) India Fellowship Seminar (IFS) Professionalism MCQ Examination**.
+A high-performance, 100% client-side static web application and examination engine built for actuarial candidates preparing for the **IAI India Fellowship Seminar (IFS) Professionalism Exam**.
 
-Zero backend required. Fully optimized for instant deployment on **GitHub Pages**.
-
----
-
-## 🎯 Exam Structure & IAI Passing Benchmark
-
-- **Total Questions:** Exactly **30 Multiple-Choice Questions (MCQs)** selected dynamically from the master question bank.
-- **Duration:** **60 Minutes** (Live countdown timer with under-5-minute alert).
-- **Passing Benchmark:** **60% (18 marks out of 30)** matching official IAI Fellowship Seminar criteria.
-- **Marking Scheme:** +1 mark per correct answer, 0 for incorrect or unattempted (no negative marking).
+Zero backend required. Engineered exclusively for execution and hosting on **GitHub Pages**.
 
 ---
 
-## 📚 Core Syllabus Modules Covered
+## 🛠️ Technical Stack & Architecture
 
-The question bank and syllabus briefs are strictly grounded in official statutory acts, standards, and regulatory frameworks:
-
-1. **Professional Conduct Standards (PCS v4.0):**
-   - Statutory authority under Section 19(2)(i) of the Actuaries Act 2006.
-   - Precedence of statutory law over professional guidance (Para 1.2).
-   - Duty of confidentiality & legal/public interest exceptions (Para 3.2).
-   - Client transition & the mandatory **10-day handover response rule** (Para 7.2).
-   - Mandatory refusal to act if client denies consent to contact incumbent actuary (Para 7.3).
-   - Duty to self-report unrectifiable misconduct (Para 5.2).
-   - Restrictions on excessive contingency/success fees (Para 6.7) and advertising rules (Para 8).
-
-2. **The Actuaries Act, 2006 & Statutory Framework:**
-   - Incorporation of the Institute of Actuaries of India (Section 3).
-   - Composition and 3-year term of the Council (Sections 12 & 14).
-   - Mandatory Certificate of Practice (COP) to practice in India (Section 9).
-   - Establishment, composition, and functions of the **Quality Review Board (QRB)** under Section 43 & 44.
-   - Criminal penalties for unauthorized use of designations (Section 38).
-
-3. **IAI Governance, Committees & QRB:**
-   - Regulatory powers of the Council under Section 19.
-   - Role of Practice Advisory Groups (Life, General, Health, Pensions, Risk Management).
-   - Purpose and prerequisites of the India Fellowship Seminar (IFS).
-
-4. **Disciplinary Process & 2008 Rules:**
-   - Disciplinary Directorate headed by the Director (Discipline) under Section 28.
-   - **First Schedule Misconduct:** Inquired into by the **Board of Discipline** (Max penalty: reprimand, suspension up to 3 months, fine up to Rs. 1,00,000).
-   - **Second Schedule Misconduct:** Inquired into by the **Disciplinary Committee** (Max penalty: permanent removal, fine up to Rs. 5,00,000).
-   - Appellate Authority appeals process under Section 36 (90-day limitation period).
-
-5. **Student Code of Conduct (2026):**
-   - Student Disciplinary Committee (SDC) composition (at least 3 members) and summary natural justice procedure.
-   - Filing complaints in triplicate with Rs. 1,000 non-refundable fee.
-   - Suo motu inquiry powers of the Institute / Head of Examination.
-   - 15 working days mediation counseling window.
-   - Symmetrical 21-day defense statement and 21-day rejoinder timelines.
-   - Appeals to the President of the Institute within 90 days.
-   - Monetary fine cap of Rs. 20,000 and debarment/registration cancellation penalties.
-
-6. **APS 9: Continuing Professional Development (CPD v4.00):**
-   - **Category 1 (COP Holders):** 24 CPD hours/year (min 15 verifiable technical, min 6 verifiable professional, max 3 other). Additional practice areas require **+8 technical hours each**.
-   - **Category 2 (Active Fellows without COP):** 15 CPD hours/year (min 9 technical, min 3 professional, max 3 other).
-   - **Category 3 (Inactive retaining FIAI):** Application 3 months prior to membership year end; exempt from annual CPD.
-   - Daily credit conversion brackets (&ge; 5.5 hours = 6 CPD hours max per day).
-   - Mandatory **5-year record retention** (Section 10.2).
-   - Self-attestation by **31st May**; public listing of non-compliant members on **1st July**.
-
-7. **APS 34 (ISAP 1) & FT-IGN 31 (Auditing Actuary under Ind AS 117):**
-   - Distinction between 'Must' (mandatory), 'Should' (normal practice), and 'May' (permissible).
-   - Standard of documentation sufficiency (competent peer actuary replication test).
-   - Auditing Actuary acting as Auditor's Expert under ICAI SA 620.
-   - Pre-engagement cooling-off of 1 year; mandatory rotation after 4 consecutive years (followed by 3-year cooling-off); max 3 concurrent audit engagements.
-   - **Working Paper Access Asymmetry:** Auditor has broad access to challenge memos; insurance company has restricted access.
-   - **5-Step Disagreement Escalation Pathway:** Engagement level &rarr; Engagement Partner &rarr; EQCR & Audit Committee &rarr; Board/TCWG &rarr; IRDAI & IAI (confidentiality overridden in public interest).
-   - PAA 1-year safe harbour at whole-contract level (carving multi-year contracts prohibited).
-   - IRDAI-prescribed CCIL Zero-Coupon Yield Curve for discounting.
-   - Audit working papers retention for **7 years** under SA 230.
+- **Core Engine:** Vanilla ECMAScript 2022+ (No heavy frontend frameworks, zero bundlers, 0 npm runtime dependencies).
+- **Styling & Design System:** Modern CSS3 with HSL/Tailored color design tokens, CSS variables, native light/dark theme toggles, and responsive grid/flexbox layouts.
+- **Audio Subsystem:** Mathematical sound synthesis implemented via the **Web Audio API** (`AudioContext`, `OscillatorNode`, `GainNode`). Runs completely offline with zero external audio assets.
+- **Visual FX Subsystem:** Real-time physics particle confetti engine rendered on an HTML5 `<canvas>` via `requestAnimationFrame`.
+- **Data Layer:** 2,598 scenario-based questions served as a single optimized JSON document (`questions.json`) fetched asynchronously via browser `fetch()` API.
+- **Persistence Layer:** Client-side persistence using `localStorage`:
+  - `iai_ifs_gamification`: User XP, mastery milestone, study streaks, achievement unlocks, combo stats, and mode bests.
+  - `iai_ifs_attempts`: History of completed mock exam attempts and score breakdowns (limited to last 15 sessions).
+  - `iai_ifs_theme`: Active color theme (`light` or `dark`).
 
 ---
 
-## 🚀 Key Features
-
-- **Full Mock Exam Mode:** Real-time 30-question randomized mock exam matching the actual IAI exam environment with interactive question palette navigator (Answered, Unanswered, Flagged).
-- **Topic Practice Mode:** Focus on individual syllabus modules with instant score evaluation.
-- **Dual Explanation Engine:** Detailed feedback for every question showing:
-  - *Why the correct answer is right* (with specific paragraph and section citations).
-  - *Distractor & Misconception Analysis* explaining why common alternatives are wrong.
-- **Pure Client-Side Analytics:** Automatic computation of strength and weakness breakdown by syllabus category (Strong / Moderate / Critical Focus Area) with visual progress bars.
-- **Smart Retry Engine:** One-click **"Retry Missed Questions"** button that isolates only the questions the candidate got wrong or skipped.
-- **Candidate Performance History:** Tracks past attempts and high scores via browser `localStorage`.
-- **Keyboard Shortcuts:**
-  - `ArrowLeft` / `ArrowRight` : Navigate questions.
-  - `1`, `2`, `3`, `4` or `A`, `B`, `C`, `D` : Select options.
-  - `F` : Flag / Unflag question for review.
-- **Hosted on GitHub Pages:** Pure static web architecture with zero server requirements. Fast, asynchronous loading of `questions.json`.
-
----
-
-## 📁 File Structure
+## 📦 Project File Structure
 
 ```
 IFS-MCQ-prep/
-├── index.html           # Main semantic HTML5 single-page application
-├── styles.css           # Premium actuarial CSS design system & responsive layout
-├── app.js               # Core application logic, quiz engine & client-side analytics
-├── questions.json       # Master question bank (735 unique, scenario-driven Fellowship MCQs)
-├── build_unique_bank.py # Master generator assembling all 7 modular domain generators
-├── gen_pcs.py           # Module 1 generator: PCS v4.0 (105 scenario MCQs)
-├── gen_act.py           # Module 2 generator: Actuaries Act 2006 (105 scenario MCQs)
-├── gen_gov.py           # Module 3 generator: IAI Governance & QRB (105 scenario MCQs)
-├── gen_disc.py          # Module 4 generator: Disciplinary Process (105 scenario MCQs)
-├── gen_std.py           # Module 5 generator: Student Code of Conduct 2026 (105 scenario MCQs)
-├── gen_aps9.py          # Module 6 generator: APS 9 CPD Regulations (105 scenario MCQs)
-├── gen_aps34.py         # Module 7 generator: APS 34 & FT-IGN 31 (105 scenario MCQs)
-└── README.md            # Comprehensive documentation & syllabus guide
+├── index.html           # Semantic HTML5 single-page application structure
+├── styles.css           # CSS design system, typography, dark/light themes & responsive layout
+├── app.js               # Application state machine, exam logic, gamification & analytics
+├── questions.json       # Master database: 2,598 verified scenario MCQs (3.5 MB JSON)
+├── README.md            # Technical documentation and deployment guide
+│
+├── [Source Standards & Guidance Reference Documents]
+├── Actuaries Act 2006.pdf
+├── APS9.docx / APS9.pdf
+├── APS34.docx / APS34.pdf
+├── Code of Conduct for Student of the IAI.docx / .pdf
+├── FT-IGN 31 Guidance Note for Actuaries Supporting Audit.docx / .pdf
+└── Professional Code of Conduct v4.docx / .pdf
 ```
 
 ---
 
-## 🌐 Free GitHub Pages Deployment
+## 📊 Data Schema (`questions.json`)
 
-1. Push this repository to GitHub:
+The questions database contains 2,598 distinct scenario questions conforming strictly to the following schema:
+
+```json
+{
+  "id": 1,
+  "category": "Professional Conduct Standards (PCS v4.0)",
+  "source": "PCS v4.0, Para 1.2 (Conflict with Legal Requirements)",
+  "question": "A consulting actuary advising an Indian life insurer is instructed...",
+  "options": [
+    "Option text string A",
+    "Option text string B",
+    "Option text string C",
+    "Option text string D"
+  ],
+  "correctIndex": 3,
+  "explanationCorrect": "Detailed technical rationale citing specific legal/practice standard clauses.",
+  "explanationIncorrect": "Distractor analysis identifying common misconceptions in options A, B, and C."
+}
+```
+
+### Option Distribution Metrics
+- **Total Questions:** 2,598
+- **Duplicate Stems:** 0 (100% unique)
+- **Option Key Balance:**
+  - Option A: 669 (25.75%)
+  - Option B: 641 (24.67%)
+  - Option C: 625 (24.06%)
+  - Option D: 663 (25.52%)
+
+---
+
+## ⚙️ Core Application Modules (`app.js`)
+
+### 1. State Machine (`AppState` & `GamificationState`)
+- **`AppState`**: Tracks the active quiz session, active question index, candidate selections (`userAnswers`), review flags (`flaggedQuestions`), countdown timer interval, and filter views.
+- **`GamificationState`**: Tracks earned XP, combo counter (1.1x–1.5x multiplier), study streaks, unlocked achievements, and mode personal bests.
+
+### 2. Examination Engine
+- **Full Mock Mode:** Randomizes 30 questions from the 2,598 pool. Initiates a 60-minute countdown timer (`startTimer()`), tracks answer states, and displays a question navigation palette.
+- **Topic Drill Mode:** Generates a 25-question focused drill for a single syllabus category. Provides instant feedback upon selection and exposes dual explanations (correct rationale + distractor analysis).
+- **Evaluation & Scoring:** Evaluates score upon submission, checks against the 60% passing benchmark (18/30 marks), computes category-level accuracy breakdown (Strong / Moderate / Critical Focus), and stores results to `localStorage`.
+- **Smart Retry Engine:** Isolates all unattempted or incorrect questions from the last session for focused practice without re-testing answered items.
+
+### 3. Specialized Game Modes
+- **Disciplinary Hearing (Sudden Death):** Evaluates every answer instantly. A single incorrect answer immediately terminates the session with an alert citing the broken rule. Tracks survival high scores.
+- **Rapid-Fire Speed Blitz (Full Syllabus):** 60-second time-attack drawing dynamically from all 2,598 questions across the entire question bank. Correct answers award +5s bonus time; incorrect answers apply a -3s penalty.
+- **Weakness Boss Battle:** Dynamically constructs a 15-question adaptive assessment targeting the candidate's historical mistakes and lowest-accuracy domains. Successfully clearing the inquest awards a +500 XP bounty.
+
+### 4. Audio Synthesizer (`ActuarialAudio`)
+Built using pure mathematical frequency generation via Web Audio API:
+- `click`: 1000 Hz &rarr; 400 Hz exponential drop (sine wave, 30ms).
+- `correct`: 523.25 Hz (C5) &rarr; 659.25 Hz (E5) ascending chime (triangle wave, 280ms).
+- `incorrect`: 220 Hz &rarr; 140 Hz descending buzz (sawtooth wave, 160ms).
+- `fanfare / levelup`: 4-note ascending major arpeggio [C5, E5, G5, C6] (triangle wave, 600ms).
+
+---
+
+## ⌨️ Keyboard Shortcuts
+
+| Key | Action | View |
+| :--- | :--- | :--- |
+| `ArrowLeft` / `ArrowRight` | Navigate to previous / next question | Exam View |
+| `1`, `2`, `3`, `4` | Select options A, B, C, or D | Exam View |
+| `A`, `B`, `C`, `D` | Select options A, B, C, or D (case-insensitive) | Exam View |
+| `F` | Toggle Flag question for review | Exam View |
+
+---
+
+## 🔨 Client-Side Code Verification
+
+To verify the client-side JavaScript syntax before pushing to GitHub:
+
+```bash
+node -c app.js
+```
+
+---
+
+## 🌐 GitHub Pages Deployment & Live Hosting
+
+This application is architected to run **exclusively on GitHub Pages** as a zero-dependency static web application. It does not require any local server setup, runtime environments, or backend services.
+
+### Publishing to GitHub Pages
+
+1. Push your repository commits to GitHub:
    ```bash
    git add .
-   git commit -m "Deploy IAI IFS MCQ Prep Web App"
+   git commit -m "Update IAI IFS Professionalism Simulator"
    git branch -M main
    git remote add origin https://github.com/<your-username>/IFS-MCQ-prep.git
    git push -u origin main
    ```
-2. On GitHub, navigate to **Settings** → **Pages**.
-3. Under **Build and deployment** → **Source**, select **Deploy from a branch**.
-4. Set branch to `main` and folder to `/ (root)`. Click **Save**.
-5. Your app will be live within 60 seconds at `https://<your-username>.github.io/IFS-MCQ-prep/`.
 
----
+2. Enable GitHub Pages in repository settings:
+   - Navigate to **Settings** &rarr; **Pages** in your GitHub repository.
+   - Under **Build and deployment** &rarr; **Source**, select **Deploy from a branch**.
+   - Set **Branch** to `main` and **Folder** to `/ (root)`.
+   - Click **Save**.
 
-## 💻 Local Preview
+3. **Live Access:**
+   GitHub Pages will automatically build and publish the site within 60 seconds:
+   ```
+   https://<your-username>.github.io/IFS-MCQ-prep/
+   ```
 
-Run any lightweight local server or open `index.html` directly in your browser:
-
-```bash
-# Python
-python -m http.server 8000
-
-# Node.js
-npx serve .
-```
-Navigate to `http://localhost:8000`.
+All state, performance tracking, audio synthesis, and offline question assets execute directly in the candidate's browser via GitHub Pages.
