@@ -1559,27 +1559,233 @@ a:hover {
   color: var(--text-main);
 }
 
-/* Syllabus Brief Modal */
+/* Syllabus Brief Modal & Comprehensive Study Guide System */
+#syllabusModal .modal-window {
+  max-width: 1040px;
+  width: 95%;
+  max-height: 94vh;
+  padding: 2.25rem;
+}
+
 .syllabus-brief-content {
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--text-main);
 }
 
-.syllabus-brief-content h4 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 1.25rem 0 0.5rem 0;
-  color: var(--primary);
+.study-guide-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border);
 }
 
-.syllabus-brief-content ul {
-  padding-left: 1.25rem;
+.study-guide-intro {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.65;
+}
+
+.study-guide-intro h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.study-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem 0;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.study-toc a {
+  font-size: 0.8rem;
+  color: var(--primary);
+  text-decoration: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.study-toc a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.study-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.study-section h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0.75rem 0;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.study-section h4 {
+  font-size: 1.025rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 1.25rem 0 0.4rem 0;
+}
+
+.study-section p, .study-section li {
+  line-height: 1.7;
+  color: var(--text-main);
+  font-size: 0.925rem;
+}
+
+.study-section ul, .study-section ol {
+  padding-left: 1.35rem;
   margin-bottom: 1rem;
 }
 
-.syllabus-brief-content li {
+.study-section li {
+  margin-bottom: 0.45rem;
+}
+
+.study-table-container {
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.study-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.study-table th {
+  background: var(--bg-subtle);
+  color: var(--text-main);
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.study-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.study-table tr:last-child td {
+  border-bottom: none;
+}
+
+.study-table tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+[data-theme="dark"] .study-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.statutory-callout {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.statutory-callout strong {
+  color: var(--accent);
+}
+
+.exam-trap-box {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  border-left: 4px solid var(--danger);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.exam-trap-box strong {
+  color: var(--danger);
+  display: block;
   margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.key-takeaway-box {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  border-left: 4px solid var(--success);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-sm);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.key-takeaway-box strong {
+  color: var(--success);
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.pill-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.pill-stat-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.pill-stat-card .stat-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  display: block;
+}
+
+.pill-stat-card .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0.2rem;
 }
 
 .statutory-ref-tag {
