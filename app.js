@@ -1593,12 +1593,15 @@ function renderActiveQuestion() {
     flagBtn.style.display = (isSurvival || isBlitz) ? "none" : "flex";
   }
   const flagText = document.getElementById("flagBtnText");
-  if (isFlagged) {
-    flagBtn.classList.add("flagged");
-    flagText.textContent = "Flagged";
-  } else {
-    flagBtn.classList.remove("flagged");
-    flagText.textContent = "Flag for Review";
+  const isFlagged = !!AppState.flaggedQuestions[q.id];
+  if (flagBtn) {
+    if (isFlagged) {
+      flagBtn.classList.add("flagged");
+      if (flagText) flagText.textContent = "Flagged";
+    } else {
+      flagBtn.classList.remove("flagged");
+      if (flagText) flagText.textContent = "Flag for Review";
+    }
   }
 
   // Render 4 options
