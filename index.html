@@ -379,33 +379,106 @@
 
             <!-- Side Question Palette Navigator -->
             <aside class="exam-palette-panel">
-              <div class="palette-title">
-                <span>Question Navigator</span>
-                <span id="paletteAnsweredCount" style="font-size: 0.75rem; color: var(--text-muted);">0 / 30</span>
-              </div>
-              
-              <div class="palette-grid" id="questionPaletteGrid">
-                <!-- Numbers 1 to 30 rendered dynamically -->
+              <!-- Standard Question Palette (Mocks, Topic Drills, Boss Battles) -->
+              <div id="standardPaletteHud">
+                <div class="palette-title">
+                  <span>Question Navigator</span>
+                  <span id="paletteAnsweredCount" style="font-size: 0.75rem; color: var(--text-muted);">0 / 30</span>
+                </div>
+                
+                <div class="palette-grid" id="questionPaletteGrid">
+                  <!-- Numbers 1 to 30 rendered dynamically -->
+                </div>
+
+                <div class="palette-legend">
+                  <div class="legend-item">
+                    <div class="legend-dot answered"></div>
+                    <span>Answered</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-dot unanswered"></div>
+                    <span>Unanswered</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-dot flagged"></div>
+                    <span>Flagged for Review</span>
+                  </div>
+                </div>
+
+                <div style="margin-top: 1.25rem;">
+                  <button id="submitExamBottomBtn" class="btn btn-primary" style="width: 100%;">
+                    Submit & View Results
+                  </button>
+                </div>
               </div>
 
-              <div class="palette-legend">
-                <div class="legend-item">
-                  <div class="legend-dot answered"></div>
-                  <span>Answered</span>
+              <!-- Dedicated Disciplinary Hearing Inquest HUD (Sudden Death) -->
+              <div id="hearingModeHud" class="hearing-hud-card" style="display: none;">
+                <div class="hearing-hud-header">
+                  <div class="hearing-status-pulse"></div>
+                  <div>
+                    <span class="hearing-badge-tag">IAI Disciplinary Committee</span>
+                    <h4 class="hearing-title">Hearing in Session</h4>
+                  </div>
                 </div>
-                <div class="legend-item">
-                  <div class="legend-dot unanswered"></div>
-                  <span>Unanswered</span>
+
+                <div class="hearing-stakes-banner">
+                  <div class="stakes-icon">🚨</div>
+                  <div class="stakes-text">
+                    <strong>Single-Life Hearing:</strong>
+                    <span>1 error triggers a Show Cause Notice and instant license suspension.</span>
+                  </div>
                 </div>
-                <div class="legend-item">
-                  <div class="legend-dot flagged"></div>
-                  <span>Flagged for Review</span>
+
+                <div class="hearing-metrics-grid">
+                  <div class="hearing-metric-box">
+                    <span class="hearing-metric-label">Charges Defended</span>
+                    <span class="hearing-metric-val" id="hearingSurvivalVal">0</span>
+                  </div>
+                  <div class="hearing-metric-box">
+                    <span class="hearing-metric-label">Personal Record</span>
+                    <span class="hearing-metric-val" id="hearingRecordVal">0</span>
+                  </div>
                 </div>
+
+                <div class="hearing-risk-indicator">
+                  <div class="risk-bar-label">
+                    <span>Sanction Vulnerability</span>
+                    <span style="color: var(--danger); font-weight: 700;">CRITICAL</span>
+                  </div>
+                  <div class="risk-bar-track">
+                    <div class="risk-bar-fill"></div>
+                  </div>
+                </div>
+
+                <button onclick="showDashboard()" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 1.25rem; border-color: var(--danger); color: var(--danger);">
+                  Adjourn & Exit Hearing
+                </button>
               </div>
 
-              <div style="margin-top: 1.25rem;">
-                <button id="submitExamBottomBtn" class="btn btn-primary" style="width: 100%;">
-                  Submit & View Results
+              <!-- Dedicated Speed Blitz HUD -->
+              <div id="blitzModeHud" class="blitz-hud-card" style="display: none;">
+                <div class="blitz-hud-header">
+                  <span class="blitz-badge-tag">⚡ Rapid-Fire Speed Blitz</span>
+                  <h4 class="blitz-title">Full Syllabus Sprint</h4>
+                </div>
+
+                <div class="blitz-timer-display" id="blitzHudTimer">60s</div>
+                <div class="blitz-timer-sub">Time Remaining (+5s bonus / -3s penalty)</div>
+
+                <div class="hearing-metrics-grid" style="margin-top: 1rem;">
+                  <div class="hearing-metric-box">
+                    <span class="hearing-metric-label">Scenarios Solved</span>
+                    <span class="hearing-metric-val" id="blitzSolvedVal" style="color: #d97706;">0</span>
+                  </div>
+                  <div class="hearing-metric-box">
+                    <span class="hearing-metric-label">High Score</span>
+                    <span class="hearing-metric-val" id="blitzRecordVal">0</span>
+                  </div>
+                </div>
+
+                <button onclick="showDashboard()" class="btn btn-secondary btn-sm" style="width: 100%; margin-top: 1.25rem;">
+                  End Sprint Early
                 </button>
               </div>
             </aside>

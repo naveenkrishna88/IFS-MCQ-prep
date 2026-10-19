@@ -1,4 +1,16 @@
-__pycache__/
-*.pyc
+# Source Reference Documents (not required for GitHub Pages web deployment)
+*.docx
+*.pdf
+
+# Development, Scratch & Build Artifacts
+scratch/
+*.log
+node_modules/
+
+# OS & Editor Files
 .DS_Store
 Thumbs.db
+__pycache__/
+*.pyc
+.vscode/
+.idea/

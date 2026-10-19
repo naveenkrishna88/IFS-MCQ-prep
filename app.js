@@ -181,72 +181,101 @@ const SYLLABUS_MODULES = [
     icon: "👔",
     desc: "Institutional governance, Council powers under Sec 19, 8 Section 21 Committees, 12 Advisory Groups, and Council Guidelines.",
     briefHtml: `
-      <h4>1. Council Powers & Institutional Architecture (Section 19)</h4>
+      <h4>1. The Council of the Institute (Section 12, 14 & 19)</h4>
       <ul>
-        <li><strong>Administrative Apex:</strong> Council governs the Institute, manages its assets, conducts elections, and regulates actuarial education, admission, and discipline.</li>
-        <li><strong>Subordinate Legislation:</strong> Council makes regulations with prior approval of the Central Government. All regulations must be laid before both Houses of Parliament.</li>
+        <li><strong>Statutory Incorporation & Term:</strong> Governed by Section 12 & 14 of the Actuaries Act, 2006. Elected Council members serve a <strong>3-year term</strong>.</li>
+        <li><strong>Current Executive Leadership:</strong>
+          <ul>
+            <li><strong>President:</strong> K S Gopalakrishnan</li>
+            <li><strong>Vice President:</strong> Pravir Chandra</li>
+            <li><strong>Honorary Secretary:</strong> Kartikey Kandoi</li>
+          </ul>
+        </li>
+        <li><strong>Government of India Nominees (Section 12(1)(b)):</strong>
+          <ul>
+            <li>Shri Debasish Prusty (Nominated by Govt of India - Notification dated 11/06/2026)</li>
+            <li>Ms. Girija Subramanian (Nominated by Govt of India - Notification dated 19/08/2025)</li>
+            <li>Shri R. Doraiswamy (Nominated by Govt of India - Notification dated 19/08/2025)</li>
+          </ul>
+        </li>
+        <li><strong>Council Powers (Section 19):</strong> Administrative apex governing the Institute, conducting elections, issuing regulations with Central Govt approval, and establishing practice standards.</li>
       </ul>
 
-      <h4>2. Statutory Standing Committees under Section 21</h4>
-      <p>Under Section 21 of the Act, Council constitutes specialized executive committees to discharge core responsibilities:</p>
+      <h4>2. Active Committees under Section 21</h4>
+      <p>Under Section 21 of the Act, Council constitutes executive standing committees to execute statutory and institutional functions:</p>
       <ul>
-        <li><strong>1. Professionalism Committee:</strong> Oversees professional ethics, PCS reviews, and guidance interpretation.</li>
-        <li><strong>2. Audit Committee:</strong> Ensures fiscal integrity, internal controls, and statutory audit compliance.</li>
-        <li><strong>3. Finance, HR, IT and Admin Committee:</strong> Budgetary administration, secretariat staff, and technology infrastructure.</li>
-        <li><strong>4. Education and Examination Committee:</strong> Examination curriculum, paper setting secrecy, center logistics, and pass standards.</li>
-        <li><strong>5. Wider Fields Committee:</strong> Promotes actuarial employment in non-traditional domains (data science, climate risk, analytics).</li>
-        <li><strong>6. Research and Innovation Committee:</strong> Fosters empirical actuarial research and working group publications.</li>
-        <li><strong>7. Student Growth and Success Committee:</strong> Student support schemes, mentorship, and career counseling.</li>
-        <li><strong>8. External Affairs and Research Committee:</strong> Liaison with international actuarial bodies (IAA) and financial regulators.</li>
+        <li><strong>1. Professionalism Committee:</strong> Oversees professional conduct, ethics standards, PCS interpretations, and compliance queries.</li>
+        <li><strong>2. Audit Committee:</strong> Ensures fiscal integrity, internal financial controls, and oversight of statutory audit processes.</li>
+        <li><strong>3. Finance, HR, IT and Admin Committee:</strong> Budgetary administration, Secretariat operations, staff human resources, and IT infrastructure.</li>
+        <li><strong>4. Education and Examination Committee:</strong> Examination curriculum, exam center integrity, paper setting secrecy, and qualification benchmarks.</li>
+        <li><strong>5. Research and Innovation Committee:</strong> Drives empirical actuarial research, emerging methodologies, and institutional thought leadership.</li>
+        <li><strong>6. Student Growth and Success Committee:</strong> Student support systems, career counseling, mentorship, and candidate pass-rate enhancements.</li>
       </ul>
 
-      <h4>3. Practice Advisory Groups (PAGs / AGs)</h4>
-      <p>Technical advisory groups providing domain-specific expertise across 12 disciplines:</p>
+      <h4>3. The 12 Advisory Groups (AGs)</h4>
+      <p>Specialized technical bodies providing domain expertise, continuing education, and practice guidance:</p>
       <ol>
-        <li>Life Insurance</li>
-        <li>General Insurance</li>
-        <li>Health Care Insurance</li>
-        <li>Pension & Other Employee Benefits & Social Security</li>
-        <li>Sustainable Development & Micro Insurance</li>
-        <li>Risk Management (ERM)</li>
-        <li>Banking, Finance & Investments</li>
-        <li>Agriculture & Rural Risk Management</li>
-        <li>Professionalism, Ethics & Conduct</li>
-        <li>Education</li>
-        <li>Examination</li>
-        <li>Communication</li>
+        <li><strong>Examination:</strong> Exam delivery and assessment standards.</li>
+        <li><strong>Education:</strong> Syllabus development and curriculum modernization.</li>
+        <li><strong>Life Insurance:</strong> Technical guidance on life reserving, pricing, and capital.</li>
+        <li><strong>General Insurance:</strong> Non-life reserving, claims modeling, and catastrophe risk.</li>
+        <li><strong>Health Care Insurance:</strong> Health pricing, clinical cost trends, and product development.</li>
+        <li><strong>Pension & Other Employee Benefits & Social Security:</strong> Ind AS 19 / AS 15 valuations and public social security.</li>
+        <li><strong>Sustainable Development & Micro Insurance:</strong> Inclusive insurance and emerging sustainability frameworks.</li>
+        <li><strong>Risk Management:</strong> Enterprise Risk Management (ERM) and corporate governance.</li>
+        <li><strong>Banking, Finance & Investments:</strong> Actuarial modeling in banking, asset-liability matching, and credit risk.</li>
+        <li><strong>Communication:</strong> Member engagement, publications, and external outreach.</li>
+        <li><strong>Agriculture & Rural Risk Management:</strong> Crop insurance, PMFBY modeling, and climate-induced agricultural risk.</li>
+        <li><strong>Professionalism, Ethics & Conduct:</strong> Professional standards review and ethical guidance.</li>
       </ol>
 
-      <h4>4. Quality Review Board (QRB - Section 43 & 2008 Rules)</h4>
+      <h4>4. Specialized Working Groups (WGs)</h4>
+      <p>Ad-hoc taskforces constituted for immediate national and regulatory priority areas:</p>
       <ul>
-        <li><strong>Composition:</strong> Chairperson (Supratim Bandyopadhyay) + 4 members (2 Central Govt nominees: Sanjeev Kumar Pujari, G. Ramaswamy; 2 Council nominees: Gopal Kumar Vishwanath Roy, Padmaja Raghunathan).</li>
-        <li><strong>Part-time appointment:</strong> 3-year tenure governed by the Actuaries QRB Rules, 2008.</li>
-        <li><strong>Mandate:</strong> Fix service standards, review service quality (including statutory actuarial audits), and advise Council on quality enhancement.</li>
+        <li><strong>1. Working Group on AI & Data Science:</strong> Big data, predictive machine learning, and ethical AI in actuarial practice.</li>
+        <li><strong>2. Working Group on IFRS 17 (IND AS 117):</strong> Financial reporting transition, measurement models (GMM, PAA, VFA), and IRDAI discount curves.</li>
+        <li><strong>3. Actuarial Job Placement Working Group (WG-AJP):</strong> Campus recruitment, industry liaison, and career openings for actuarial talent.</li>
+        <li><strong>4. Working Group on Climate Risk & Sustainable Finance:</strong> Transition risk modeling, ESG disclosures, and green financial instruments.</li>
       </ul>
 
-      <h4>5. Key Council Guidelines Published on IAI Portal</h4>
+      <h4>5. Quality Review Board (QRB - Section 43 & 44)</h4>
+      <ul>
+        <li><strong>Statutory Origin:</strong> Constituted by the Central Government under Section 43(1) of the Actuaries Act, 2006.</li>
+        <li><strong>Current Board Composition:</strong>
+          <ul>
+            <li><strong>Chairperson:</strong> Supratim Bandyopadhyay (Nominated by Central Government)</li>
+            <li><strong>Central Government Nominees:</strong> Sanjeev Kumar Pujari, G. Ramaswamy</li>
+            <li><strong>Council Nominees:</strong> Gopal Kumar Vishwanath Roy, Padmaja Raghunathan</li>
+          </ul>
+        </li>
+        <li><strong>Tenure & Rules:</strong> 3-year part-time appointments governed by the Actuaries Quality Review Board Rules, 2008.</li>
+        <li><strong>Three Statutory Functions (Section 44):</strong>
+          <ol>
+            <li>To fix standards for the services provided by members of the Institute.</li>
+            <li>To review the quality of services provided by members, including actuarial audit services.</li>
+            <li>To guide members to improve service quality and adherence to statutory and regulatory requirements.</li>
+          </ol>
+        </li>
+      </ul>
+
+      <h4>6. Key Council Guidelines Published on IAI Portal</h4>
       <ul>
         <li><strong>Procedure of Conducting AGM:</strong> Approved by Council on 2 March 2013; governs notice, quorum, and voting.</li>
         <li><strong>Video Conferencing Meetings:</strong> Formal protocol for virtual Council and Committee deliberations.</li>
         <li><strong>Permitted Other Services (Sec 2(2)(iii)):</strong> Specifies non-actuarial commercial services a practicing member may render without breach.</li>
         <li><strong>Clarification on Section 39:</strong> Regulates the use of 'Actuary' titles and institutional logos.</li>
-        <li><strong>Principles & Procedures for Issuance of APSs/GNs (Versions 3, 4, 5):</strong> Standardized due process for drafting, public exposure draft consultation, PAG review, and Council enactment.</li>
+        <li><strong>Principles & Procedures for Issuance of APSs/GNs (Versions 3, 4, 5):</strong> Standardized due process for drafting, public exposure draft consultation, AG review, and Council enactment.</li>
         <li><strong>Social Media Usage:</strong> Professionalism guidelines holding members accountable for online commentary damaging the profession.</li>
-      </ul>
-
-      <h4>6. India Fellowship Seminar (IFS)</h4>
-      <ul>
-        <li><strong>Mandatory Prerequisite:</strong> Compulsory transition seminar required before admission as a Fellow (FIAI).</li>
-        <li><strong>Exam Benchmark:</strong> 30 scenario MCQs in 60 minutes with a strict <strong>60% passing benchmark (18 out of 30 marks)</strong> with no negative marking.</li>
       </ul>
 
       <div style="background: var(--bg-subtle); border-left: 4px solid var(--primary); padding: 0.85rem 1rem; border-radius: var(--radius-sm); margin-top: 1rem;">
         <strong style="color: var(--primary);">Crucial Points to Remember for Fellowship Exam:</strong>
         <ul style="margin-bottom: 0; padding-left: 1.15rem; font-size: 0.85rem;">
-          <li>Section 21 establishes 8 statutory committees of the Council.</li>
-          <li>12 Advisory Groups cover traditional insurance, ERM, banking, and agriculture.</li>
-          <li>QRB consists of Chair + 4 members (2 Govt + 2 Council); 3-year term.</li>
-          <li>IFS examination requires 60% (18/30) to qualify for Fellowship admission.</li>
+          <li>Council: 3-year term; President, VP, Hon. Secretary + 3 Central Govt nominees.</li>
+          <li>Section 21 establishes 6 active standing committees (including Research & Innovation, Student Growth).</li>
+          <li>12 Advisory Groups cover traditional actuarial disciplines plus Agriculture, ERM, and Banking.</li>
+          <li>4 Working Groups: AI & Data Science, IFRS 17 (Ind AS 117), WG-AJP, Climate Risk.</li>
+          <li>QRB: Chairperson Supratim Bandyopadhyay + 4 members (2 Govt, 2 Council); 3-year term.</li>
         </ul>
       </div>
     `
@@ -1424,6 +1453,14 @@ function setupQuizSession(questions, mode, modeLabel, durationSec) {
 
   if (comboBanner) comboBanner.style.display = "none";
 
+  const standardPalette = document.getElementById("standardPaletteHud");
+  const hearingHud = document.getElementById("hearingModeHud");
+  const blitzHud = document.getElementById("blitzModeHud");
+
+  if (standardPalette) standardPalette.style.display = (isSurvival || isBlitz) ? "none" : "block";
+  if (hearingHud) hearingHud.style.display = isSurvival ? "flex" : "none";
+  if (blitzHud) blitzHud.style.display = isBlitz ? "flex" : "none";
+
   if (isMock || isBoss) {
     if (finishTopBtn) finishTopBtn.style.display = "inline-flex";
     if (submitBottomBtn) submitBottomBtn.style.display = "block";
@@ -1441,7 +1478,7 @@ function setupQuizSession(questions, mode, modeLabel, durationSec) {
     if (submitBottomBtn) submitBottomBtn.style.display = "none";
     if (timerBox) {
       timerBox.style.display = "flex";
-      timerDisplay.textContent = `Survives: ${AppState.survivalCount || 0}`;
+      timerDisplay.textContent = `Charges: ${AppState.survivalCount || 0}`;
     }
   } else {
     // Topic Drill / Practice mode: NO submit button! Instant feedback!
@@ -1468,6 +1505,8 @@ function startBlitzTimer() {
     AppState.timeElapsedSec++;
 
     updateTimerDisplay();
+    const blitzHudTimer = document.getElementById("blitzHudTimer");
+    if (blitzHudTimer) blitzHudTimer.textContent = `${AppState.timeRemainingSec}s`;
 
     if (AppState.timeRemainingSec <= 10) {
       timerBox.classList.add("timer-warning");
@@ -1527,8 +1566,20 @@ function renderActiveQuestion() {
   const isTopicMode = AppState.examMode !== "mock";
   const selectedIdx = AppState.userAnswers[q.id];
 
-  document.getElementById("currentQuestionIndicator").textContent = 
-    `Question ${AppState.currentQuestionIndex + 1} of ${total}`;
+  const isSurvival = AppState.examMode === "survival";
+  const isBlitz = AppState.examMode === "blitz";
+
+  const indicator = document.getElementById("currentQuestionIndicator");
+  if (indicator) {
+    if (isSurvival) {
+      indicator.textContent = `Inquest Charge #${(AppState.survivalCount || 0) + 1} • Disciplinary Hearing (1 Life)`;
+    } else if (isBlitz) {
+      indicator.textContent = `Blitz Scenario #${(AppState.blitzScore || 0) + 1} • Speed Sprint`;
+    } else {
+      indicator.textContent = `Question ${AppState.currentQuestionIndex + 1} of ${total}`;
+    }
+  }
+
   document.getElementById("qCategoryBadge").textContent = q.category;
   const sourceEl = document.getElementById("qSourceBadge");
   if (sourceEl) {
@@ -1536,9 +1587,11 @@ function renderActiveQuestion() {
   }
   document.getElementById("activeQuestionText").textContent = q.question;
 
-  // Flag button state
-  const isFlagged = !!AppState.flaggedQuestions[q.id];
+  // Flag and Previous button visibility: In Sudden Death & Blitz, there is no jumping back or flagging
   const flagBtn = document.getElementById("flagQuestionBtn");
+  if (flagBtn) {
+    flagBtn.style.display = (isSurvival || isBlitz) ? "none" : "flex";
+  }
   const flagText = document.getElementById("flagBtnText");
   if (isFlagged) {
     flagBtn.classList.add("flagged");
@@ -1578,21 +1631,32 @@ function renderActiveQuestion() {
   if (instantCard) {
     if (isTopicMode && selectedIdx !== undefined) {
       const isCorrect = selectedIdx === q.correctIndex;
+      const letters = ["A", "B", "C", "D"];
+      const correctLetter = letters[q.correctIndex];
+      const distractorLetters = letters.filter((_, idx) => idx !== q.correctIndex);
+      const selectedLetter = letters[selectedIdx];
+      let distractorText = (q.explanationIncorrect || "").replace(/^Distractor\s+analysis:\s*/i, "");
+
       instantCard.innerHTML = `
         <div class="instant-card ${isCorrect ? 'correct-feedback' : 'incorrect-feedback'}">
           <div class="instant-badge-bar">
             <span class="instant-status-pill ${isCorrect ? 'pill-correct' : 'pill-incorrect'}">
-              ${isCorrect ? '✓ Correct Answer' : '✕ Incorrect Selection'}
+              ${isCorrect ? `✓ Correct Answer (Option ${correctLetter})` : `✕ Incorrect Selection (You Chose Option ${selectedLetter})`}
             </span>
             <span class="q-source-badge">Source: ${q.source || q.category}</span>
           </div>
+          ${!isCorrect ? `
+            <div class="user-selection-callout" style="margin-bottom: 0.75rem; padding: 0.5rem 0.75rem; border-radius: 6px; background: rgba(239, 68, 68, 0.08); border-left: 3px solid var(--danger); font-size: 0.85rem; color: var(--text-main);">
+              <strong>Your Selection (Option ${selectedLetter}):</strong> The correct answer is <strong>Option ${correctLetter}</strong>. Review the professional rationale and distractor analysis below.
+            </div>
+          ` : ''}
           <div class="instant-explanation-block">
-            <strong>Why this is correct:</strong>
+            <strong>Why Option ${correctLetter} is Correct:</strong>
             <p>${q.explanationCorrect}</p>
           </div>
           <div class="instant-explanation-block distractor-block">
-            <strong>Distractor & Misconception Analysis:</strong>
-            <p>${q.explanationIncorrect}</p>
+            <strong>Distractor & Misconception Analysis (Options ${distractorLetters.join(", ")}):</strong>
+            <p>${distractorText}</p>
           </div>
         </div>
       `;
@@ -1603,8 +1667,12 @@ function renderActiveQuestion() {
     }
   }
 
-  // Navigation button states
-  document.getElementById("prevQuestionBtn").disabled = AppState.currentQuestionIndex === 0;
+  // Navigation button states: Hide Previous button in Sudden Death & Blitz
+  const prevBtn = document.getElementById("prevQuestionBtn");
+  if (prevBtn) {
+    prevBtn.style.display = (isSurvival || isBlitz) ? "none" : "inline-flex";
+    prevBtn.disabled = AppState.currentQuestionIndex === 0;
+  }
   
   const nextBtn = document.getElementById("nextQuestionBtn");
   if (AppState.currentQuestionIndex === total - 1) {
@@ -1679,7 +1747,7 @@ window.selectOption = function(optionIndex) {
       if (AppState.survivalCount >= 10) unlockAchievement("hearing_survivor");
 
       const timerDisplay = document.getElementById("timerDisplay");
-      if (timerDisplay) timerDisplay.textContent = `Survives: ${AppState.survivalCount}`;
+      if (timerDisplay) timerDisplay.textContent = `Charges: ${AppState.survivalCount}`;
 
       renderActiveQuestion();
       renderQuestionPalette();
@@ -1695,7 +1763,7 @@ window.selectOption = function(optionIndex) {
       renderActiveQuestion();
       renderQuestionPalette();
       setTimeout(() => {
-        alert(`🚨 DISCIPLINARY COMMITTEE ORDER: You made an error violating ${q.source}. Your license is suspended! You survived ${AppState.survivalCount || 0} consecutive scenarios.`);
+        alert(`🚨 DISCIPLINARY COMMITTEE ORDER: You made an error under ${q.source}. Your Certificate of Practice (COP) is immediately suspended! You defended ${AppState.survivalCount || 0} consecutive charges before sanction.`);
         showDashboard();
       }, 400);
       return;
@@ -1775,6 +1843,28 @@ window.jumpToQuestion = function(index) {
 // =============================================================================
 
 function renderQuestionPalette() {
+  const isSurvival = AppState.examMode === "survival";
+  const isBlitz = AppState.examMode === "blitz";
+
+  // In Disciplinary Hearing or Speed Blitz: Update dedicated HUD instead of rendering 2,598 buttons!
+  if (isSurvival) {
+    const survivalVal = document.getElementById("hearingSurvivalVal");
+    const recordVal = document.getElementById("hearingRecordVal");
+    if (survivalVal) survivalVal.textContent = AppState.survivalCount || 0;
+    if (recordVal) recordVal.textContent = GamificationState.survivalBest || 0;
+    return;
+  }
+
+  if (isBlitz) {
+    const solvedVal = document.getElementById("blitzSolvedVal");
+    const recordVal = document.getElementById("blitzRecordVal");
+    const blitzHudTimer = document.getElementById("blitzHudTimer");
+    if (solvedVal) solvedVal.textContent = AppState.blitzScore || 0;
+    if (recordVal) recordVal.textContent = GamificationState.blitzBest || 0;
+    if (blitzHudTimer) blitzHudTimer.textContent = `${AppState.timeRemainingSec}s`;
+    return;
+  }
+
   const grid = document.getElementById("questionPaletteGrid");
   if (!grid) return;
 
@@ -2172,9 +2262,9 @@ function renderReviewList() {
           ${q.explanationIncorrect ? `
             <div class="exp-distractor">
               <div class="exp-section-title" style="color: var(--danger); font-size: 0.825rem;">
-                Distractor & Misconception Analysis:
+                Distractor & Misconception Analysis (Options ${letters.filter((_, idx) => idx !== q.correctIndex).join(', ')}):
               </div>
-              <p>${q.explanationIncorrect}</p>
+              <p>${(q.explanationIncorrect || '').replace(/^Distractor\s+analysis:\s*/i, '')}</p>
             </div>
           ` : ''}
         </div>

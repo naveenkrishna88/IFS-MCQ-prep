@@ -111,41 +111,10 @@ Built using pure mathematical frequency generation via Web Audio API:
 
 ---
 
-## 🔨 Client-Side Code Verification
+## 🔗 Live Application
 
-To verify the client-side JavaScript syntax before pushing to GitHub:
+Access and practice directly in your browser:
 
-```bash
-node -c app.js
-```
+👉 **[https://naveenkrishna88.github.io/IFS-MCQ-prep/](https://naveenkrishna88.github.io/IFS-MCQ-prep/)**
 
----
-
-## 🌐 GitHub Pages Deployment & Live Hosting
-
-This application is architected to run **exclusively on GitHub Pages** as a zero-dependency static web application. It does not require any local server setup, runtime environments, or backend services.
-
-### Publishing to GitHub Pages
-
-1. Push your repository commits to GitHub:
-   ```bash
-   git add .
-   git commit -m "Update IAI IFS Professionalism Simulator"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/IFS-MCQ-prep.git
-   git push -u origin main
-   ```
-
-2. Enable GitHub Pages in repository settings:
-   - Navigate to **Settings** &rarr; **Pages** in your GitHub repository.
-   - Under **Build and deployment** &rarr; **Source**, select **Deploy from a branch**.
-   - Set **Branch** to `main` and **Folder** to `/ (root)`.
-   - Click **Save**.
-
-3. **Live Access:**
-   GitHub Pages will automatically build and publish the site within 60 seconds:
-   ```
-   https://<your-username>.github.io/IFS-MCQ-prep/
-   ```
-
-All state, performance tracking, audio synthesis, and offline question assets execute directly in the candidate's browser via GitHub Pages.
+*(Runs 100% client-side with offline question loading, local score history, and zero installation or account creation required.)*
