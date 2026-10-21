@@ -988,8 +988,9 @@ function renderActiveQuestion() {
   if (!q) return;
 
   const total = AppState.activeQuizQuestions.length;
-  const isTopicMode = AppState.examMode !== "mock";
+  const isInstantMode = AppState.examMode !== "mock" && AppState.examMode !== "boss";
   const selectedIdx = AppState.userAnswers[q.id];
+  const isAnswered = selectedIdx !== undefined;
 
   const isSurvival = AppState.examMode === "survival";
   const isBlitz = AppState.examMode === "blitz";
@@ -1037,8 +1038,9 @@ function renderActiveQuestion() {
     let itemClasses = ["option-item"];
     if (selectedIdx === idx) itemClasses.push("selected");
 
-    // In Topic Practice mode, reveal correct/incorrect status immediately once answered!
-    if (isTopicMode && selectedIdx !== undefined) {
+    // In Instant Feedback modes (Practice/Retry/Survival/Blitz), reveal correct/incorrect status and LOCK options once answered!
+    if (isInstantMode && isAnswered) {
+      itemClasses.push("locked");
       if (idx === q.correctIndex) {
         itemClasses.push("option-correct");
       } else if (idx === selectedIdx) {
@@ -1046,18 +1048,21 @@ function renderActiveQuestion() {
       }
     }
 
+    // Completely omit onclick if in instant mode and already answered
+    const clickAttr = (isInstantMode && isAnswered) ? "" : `onclick="selectOption(${idx})"`;
+
     return `
-      <div class="${itemClasses.join(' ')}" onclick="selectOption(${idx})">
+      <div class="${itemClasses.join(' ')}" ${clickAttr}>
         <div class="option-marker">${optionLetters[idx]}</div>
         <div class="option-label">${opt}</div>
       </div>
     `;
   }).join("");
 
-  // Instant Feedback & Explanations Card (Topic Practice)
+  // Instant Feedback & Explanations Card (Topic Practice / Retry)
   const instantCard = document.getElementById("activeInstantFeedback");
   if (instantCard) {
-    if (isTopicMode && selectedIdx !== undefined) {
+    if (isInstantMode && isAnswered) {
       const isCorrect = selectedIdx === q.correctIndex;
       const letters = ["A", "B", "C", "D"];
       const correctLetter = letters[q.correctIndex];
@@ -1095,6 +1100,21 @@ function renderActiveQuestion() {
     }
   }
 
+  // Clear button control: In instant feedback modes (Practice/Retry), hide once answered so evaluated answer cannot be wiped
+  const clearBtn = document.getElementById("clearAnswerBtn");
+  if (clearBtn) {
+    if (isSurvival || isBlitz) {
+      clearBtn.style.display = "none";
+    } else if (isInstantMode) {
+      clearBtn.style.display = isAnswered ? "none" : "inline-flex";
+      clearBtn.disabled = isAnswered;
+    } else {
+      // Mock and Boss exam modes allow clearing a chosen answer prior to final exam submission
+      clearBtn.style.display = "inline-flex";
+      clearBtn.disabled = !isAnswered;
+    }
+  }
+
   // Navigation button states: Hide Previous button in Sudden Death & Blitz
   const prevBtn = document.getElementById("prevQuestionBtn");
   if (prevBtn) {
@@ -1104,7 +1124,7 @@ function renderActiveQuestion() {
   
   const nextBtn = document.getElementById("nextQuestionBtn");
   if (AppState.currentQuestionIndex === total - 1) {
-    if (isTopicMode) {
+    if (isInstantMode) {
       nextBtn.innerHTML = `Complete Drill & View Score <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
       nextBtn.onclick = () => finalizeExamSubmission();
     } else {
@@ -1123,10 +1143,16 @@ window.selectOption = function(optionIndex) {
   const q = AppState.activeQuizQuestions[AppState.currentQuestionIndex];
   if (!q) return;
 
+  const isInstant = AppState.examMode !== "mock" && AppState.examMode !== "boss";
+
+  // In instant feedback modes (Practice, Retry, Survival, Blitz), answers cannot be changed once selected
+  if (isInstant && AppState.userAnswers[q.id] !== undefined) {
+    return;
+  }
+
   audioFX.play('click');
   AppState.userAnswers[q.id] = optionIndex;
 
-  const isInstant = AppState.examMode !== "mock" && AppState.examMode !== "boss";
   const isCorrect = optionIndex === q.correctIndex;
 
   if (isInstant) {
@@ -1237,6 +1263,12 @@ window.clearCurrentAnswer = function() {
   const q = AppState.activeQuizQuestions[AppState.currentQuestionIndex];
   if (!q) return;
 
+  const isInstant = AppState.examMode !== "mock" && AppState.examMode !== "boss";
+  if (isInstant && AppState.userAnswers[q.id] !== undefined) {
+    // In practice/retry modes, evaluated answers cannot be cleared to re-select
+    return;
+  }
+
   delete AppState.userAnswers[q.id];
   renderActiveQuestion();
   renderQuestionPalette();
@@ -1298,7 +1330,7 @@ function renderQuestionPalette() {
 
   const total = AppState.activeQuizQuestions.length;
   let answeredCount = 0;
-  const isTopicMode = AppState.examMode !== "mock";
+  const isInstantMode = AppState.examMode !== "mock" && AppState.examMode !== "boss";
 
   let html = "";
   for (let i = 0; i < total; i++) {
@@ -1313,7 +1345,7 @@ function renderQuestionPalette() {
     if (isCurrent) classes.push("current");
 
     if (isAnswered) {
-      if (isTopicMode) {
+      if (isInstantMode) {
         if (AppState.userAnswers[q.id] === q.correctIndex) {
           classes.push("correct");
         } else {

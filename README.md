@@ -12,7 +12,7 @@ Zero backend required. Engineered exclusively for execution and hosting on **Git
 - **Styling & Design System:** Modern CSS3 with HSL/Tailored color design tokens, CSS variables, native light/dark theme toggles, and responsive grid/flexbox layouts.
 - **Audio Subsystem:** Mathematical sound synthesis implemented via the **Web Audio API** (`AudioContext`, `OscillatorNode`, `GainNode`). Runs completely offline with zero external audio assets.
 - **Visual FX Subsystem:** Real-time physics particle confetti engine rendered on an HTML5 `<canvas>` via `requestAnimationFrame`.
-- **Data Layer:** 2,598 scenario-based questions served as a single optimized JSON document (`questions.json`) fetched asynchronously via browser `fetch()` API.
+- **Data Layer:** 240 authentic, Fellowship-grade scenario questions (30 per syllabus module) served as a single optimized JSON document (`questions.json`) fetched asynchronously via browser `fetch()` API.
 - **Persistence Layer:** Client-side persistence using `localStorage`:
   - `iai_ifs_gamification`: User XP, mastery milestone, study streaks, achievement unlocks, combo stats, and mode bests.
   - `iai_ifs_attempts`: History of completed mock exam attempts and score breakdowns (limited to last 15 sessions).
@@ -27,7 +27,7 @@ IFS-MCQ-prep/
 ├── index.html           # Semantic HTML5 single-page application structure
 ├── styles.css           # CSS design system, typography, dark/light themes & responsive layout
 ├── app.js               # Application state machine, exam logic, gamification & analytics
-├── questions.json       # Master database: 2,598 verified scenario MCQs (3.5 MB JSON)
+├── questions.json       # Master database: 240 verified scenario MCQs
 ├── README.md            # Technical documentation and deployment guide
 │
 ├── [Source Standards & Guidance Reference Documents]
@@ -43,7 +43,7 @@ IFS-MCQ-prep/
 
 ## 📊 Data Schema (`questions.json`)
 
-The questions database contains 2,598 distinct scenario questions conforming strictly to the following schema:
+The questions database contains 240 distinct scenario questions conforming strictly to the following schema:
 
 ```json
 {

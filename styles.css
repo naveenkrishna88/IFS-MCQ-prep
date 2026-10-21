@@ -869,6 +869,26 @@ a:hover {
   color: white !important;
 }
 
+.option-item.locked {
+  cursor: default !important;
+  pointer-events: none !important;
+}
+
+.option-item.locked:hover {
+  border-color: var(--border);
+  background: var(--bg-surface);
+}
+
+.option-item.locked.option-correct:hover {
+  border-color: var(--success) !important;
+  background: var(--success-bg) !important;
+}
+
+.option-item.locked.option-incorrect:hover {
+  border-color: var(--danger) !important;
+  background: var(--danger-bg) !important;
+}
+
 /* Instant Feedback & Explanations Card (Topic Practice) */
 .instant-feedback-container {
   margin: 1.25rem 0;
